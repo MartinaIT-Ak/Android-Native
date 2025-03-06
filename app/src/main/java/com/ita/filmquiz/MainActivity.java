@@ -180,12 +180,8 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.cheat) {
             //creer un Intent
             Intent intent = new Intent(getApplicationContext(), CheatActivity.class);
-            //creer un Bundle
-            Bundle bundle = new Bundle();
-            //ajouter les donnees dans le bundle
-            bundle.putSerializable(KEY_QUESTION, questions.get(index));
             //ajouter le bundle au intent
-            intent.putExtras(bundle);
+            intent.putExtra(KEY_QUESTION, questions.get(index));
             //demarer l'activity
             startActivity(intent);
             return true;

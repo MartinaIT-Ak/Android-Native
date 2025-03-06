@@ -38,14 +38,14 @@ public class CheatActivity extends AppCompatActivity {
 
         //recuperer l'intent qui a appele cette activity
         Intent intent = getIntent();
-        //recuperer le bundle
-        Bundle bundle = getIntent().getExtras();
         //recuperer la question de bundle
-        Question question = (Question)bundle.getSerializable(MainActivity.KEY_QUESTION);
+        Question question = (Question)intent.getSerializableExtra(MainActivity.KEY_QUESTION);
         //recuperer l'element
         textAnswer = findViewById(R.id.textReponse);
         //afficher la reponse
-        textAnswer.setText(String.format("%d : %s", question.getText(), question.getAnswer()));
+        String textQuestion = question.getText();
+        boolean textAns = question.getAnswer();
+        textAnswer.setText(String.format("%s : %s", question.getText(), question.getAnswer() ? "VRAI" : "FAUX"));
     }
 
     @Override
